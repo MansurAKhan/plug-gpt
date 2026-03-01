@@ -1,7 +1,12 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from groq_service import get_default_system_prompt
-from llm_router import generate_response, debug_enabled, LLMUnavailableError
+
+try:
+    from .groq_service import get_default_system_prompt
+    from .llm_router import generate_response, debug_enabled, LLMUnavailableError
+except ImportError:
+    from groq_service import get_default_system_prompt
+    from llm_router import generate_response, debug_enabled, LLMUnavailableError
 
 router = APIRouter()
 

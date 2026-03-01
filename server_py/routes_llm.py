@@ -1,7 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from llm_router import provider_health, provider_models, test_routing, LLMUnavailableError
+try:
+    from .llm_router import provider_health, provider_models, test_routing, LLMUnavailableError
+except ImportError:
+    from llm_router import provider_health, provider_models, test_routing, LLMUnavailableError
 
 router = APIRouter()
 

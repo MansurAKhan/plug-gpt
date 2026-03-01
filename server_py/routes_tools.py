@@ -2,9 +2,15 @@ import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from groq_service import get_default_system_prompt
-from llm_router import generate_response, debug_enabled, LLMUnavailableError
-from java_bridge import get_text_metrics
+
+try:
+    from .groq_service import get_default_system_prompt
+    from .llm_router import generate_response, debug_enabled, LLMUnavailableError
+    from .java_bridge import get_text_metrics
+except ImportError:
+    from groq_service import get_default_system_prompt
+    from llm_router import generate_response, debug_enabled, LLMUnavailableError
+    from java_bridge import get_text_metrics
 
 router = APIRouter()
 ROOT_DIR = Path(__file__).resolve().parents[1]

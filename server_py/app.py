@@ -9,9 +9,14 @@ import uvicorn
 
 load_dotenv()
 
-from routes_chat import router as chat_router
-from routes_tools import router as tools_router
-from routes_llm import router as llm_router
+try:
+    from .routes_chat import router as chat_router
+    from .routes_tools import router as tools_router
+    from .routes_llm import router as llm_router
+except ImportError:
+    from routes_chat import router as chat_router
+    from routes_tools import router as tools_router
+    from routes_llm import router as llm_router
 
 app = FastAPI()
 

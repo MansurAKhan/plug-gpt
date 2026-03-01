@@ -1,6 +1,10 @@
 import os
 import requests
-from providers.base import LLMProviderError, classify_http_error, classify_request_exception
+
+try:
+    from .base import LLMProviderError, classify_http_error, classify_request_exception
+except ImportError:
+    from providers.base import LLMProviderError, classify_http_error, classify_request_exception
 
 
 class OpenRouterClient:

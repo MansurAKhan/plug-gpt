@@ -3,10 +3,16 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-from providers.base import LLMProviderError
-from providers.groq_client import GroqClient
-from providers.openrouter_client import OpenRouterClient
-from providers.ollama_client import OllamaClient
+try:
+    from .providers.base import LLMProviderError
+    from .providers.groq_client import GroqClient
+    from .providers.openrouter_client import OpenRouterClient
+    from .providers.ollama_client import OllamaClient
+except ImportError:
+    from providers.base import LLMProviderError
+    from providers.groq_client import GroqClient
+    from providers.openrouter_client import OpenRouterClient
+    from providers.ollama_client import OllamaClient
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT_DIR / 'config' / 'llm_providers.json'
