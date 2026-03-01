@@ -1,0 +1,8 @@
+{
+  "ib_prompts": {
+    "ia": "Help me with my IB Internal Assessment on \"{topic}\" in {subject}. Provide topic refinement, research question ideas, outline structure, and evaluation frameworks.",
+    "tok": "Help me with my TOK {topic}. Provide RLS ideas, knowledge questions, essay structure, or exhibition guidance as needed.",
+    "cas": "Help me with CAS. {topic_clause}",
+    "ee": "Help me with my Extended Essay on \"{topic}\" in {subject}. Provide topic refinement, planning advice, and chapter outlines."
+  }
+}

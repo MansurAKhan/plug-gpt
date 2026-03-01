@@ -1,0 +1,374 @@
+
+
+# **PLUGGPT: COMPLETE UNIFIED PRODUCT SPECIFICATION**
+
+*(Developer-ready. Neutral tone. Ready for Cursor.)*
+
+This document defines the product scope, feature set, branding system, UI structure, and technical expectations for **PlugGPT**, a core feature inside *The Academic Plug* application. Everything here is cohesive and consistent.
+
+---
+
+# **1. Product Summary**
+
+PlugGPT is an academic-focused LLM interface designed for high-school and university students, with an emphasis on IB students. It provides structured academic explanations, writing assistance, guided workflows, and subject-specific tools inside a clean, minimal, responsive tailwind-based UI.
+
+Emphasizes:
+
+* Accurate academic reasoning
+* Step-by-step explanations
+* Organized, structured outputs
+* IB-aligned workflows
+* Study productivity features
+* Task-specific modes (writing, math, analysis, science, etc.)
+* Zero clutter, zero distractions
+* Fully responsive SPA design
+
+Dark and light theme options are built-in, switchable via UI toggle.
+
+---
+
+# **2. Core Principles**
+
+* Precision instead of verbosity
+* Clear explanations rather than overwriting user work
+* Outputs always structured
+* Academic integrity compliant
+* Modular, expandable features
+
+---
+
+# **3. Target Users**
+
+Primary: IB Diploma students
+Secondary: AP/A-Level/University students
+Tertiary: Teachers, tutors
+
+---
+
+# **4. Branding, Identity & Global UI Standards (From Academic Plug Style Guide)**
+
+## **4.1 Branding: Colors (Mandatory)**
+
+| Name                         | Hex         | Tailwind Token  | Usage                                                                  |
+| ---------------------------- | ----------- | --------------- | ---------------------------------------------------------------------- |
+| Primary Accent (AP-Yellow)   | **#FFC107** | `ap-yellow`     | Buttons, active states, links, highlights, accents, subject selections |
+| Light Card Background        | **#FFFBEA** | `ap-light-card` | PlugGPT message bubbles, informational cards                           |
+| Base Background (Light Mode) | **#F9FAFB** | `bg-gray-50`    | Default light background                                               |
+| Base Background (Dark Mode)  | **#111827** | `bg-gray-900`   | Default dark background                                                |
+| Text Primary                 | **#1F2937** | `text-gray-900` | Standard light-mode text                                               |
+
+Include Tailwind custom classes for `ap-yellow` and `ap-light-card`.
+
+## **4.2 Typography**
+
+* Font: **Inter**, sans-serif
+* Always use clean, neutral academic typography
+* No decorative fonts
+
+## **4.3 Aesthetics**
+
+* **Extremely rounded corners:** `rounded-xl` to `rounded-2xl`
+* **Soft elevated shadows:** `shadow-lg` or `shadow-xl` on cards and tool sections
+* **Line icons:** preferably Lucide
+
+## **4.4 Responsiveness**
+
+* Fully responsive SPA using Tailwind breakpoints (`sm: md: lg:`)
+* All components gracefully collapse into mobile layout
+
+## **4.5 Logo**
+
+* Logo file: **`BlackBGMain.png` for dark mode**  **`WhiteBGMain.png` for light mode**
+* Used in header, sidebar, and landing states
+
+## **4.6 Theme System**
+
+* User can **switch between light and dark mode**
+* Tailwind dark mode class approach recommended
+
+---
+
+# **5. System Architecture Overview**
+
+## **5.1 Frontend**
+
+* Built in **Next.js** or React (developer choice)
+* SPA-style workflow
+* Tailwind CSS for all styling
+* Markdown rendering for LLM responses
+* Sidebar navigation
+* No login required in v1 (localStorage saves)
+
+## **5.2 Backend**
+
+* Node/Express or Python (FastAPI)
+* Connect to a **free compatible LLM API**
+* All feature modules implemented as separate backend functions
+* Rewriter layer ensures formatted, structured outputs
+
+---
+
+# **6. PlugGPT: Core Feature Set**
+
+## **6.1 Subject Selection UI**
+
+**Initial state:**
+
+* Centered section showing subjects (Math, Sciences, Humanities, etc.)
+* Selected subject highlighted with `ap-yellow` background
+* Each subject button uses extremely rounded edges and slight shadow
+
+After selection, the chat view loads.
+
+---
+
+# **7. PlugGPT Chat Interface (Visual/UI Requirements)**
+
+## **Chat Layout**
+
+* Standard two-column chat stream
+* Scrollable conversation feed
+* Export options visible (copy, save, etc.)
+
+## **Chat Bubbles**
+
+### **User Message Bubble**
+
+* Background: `ap-yellow/30` (light yellow tint)
+* Rounded-xl or rounded-2xl
+* Right-aligned
+
+### **PlugGPT Message Bubble**
+
+* Background: `ap-light-card`
+* Must contain a **label** at the top:
+
+  * Bold text “PlugGPT”
+  * AP-yellow text color
+  * Small icon (sparkles/zap) next to it
+* Left-aligned
+
+## **Input Bar**
+
+* Persistent at bottom
+* Border accented in **AP-yellow**
+* Send icon (Lucide)
+
+## **Theme Support**
+
+* Text, bubbles, borders must auto-adapt to dark mode
+
+---
+
+# **8. Full Functional Feature Set**
+
+## **8.1 Study Tools**
+
+### **Explain Mode**
+
+* Input: topic, question, paragraph
+* Output: structured explanation with headings
+* Tone: academic, clear, neutral
+* Toggle: “High School Level”
+
+### **Breakdown Mode**
+
+Outputs:
+
+* Bullet summary
+* Key terms
+* Main arguments
+* Short content quiz
+
+### **Flashcard Generator**
+
+Input text → generates Q&A flashcards
+
+### **Exam-Style Practice**
+
+* Creates exam-format questions
+* Creates marking-scheme-style answers
+
+---
+
+## **8.2 Writing Tools**
+
+### **Essay Builder**
+
+* Thesis builder
+* Outline builder
+* Hook generator
+* Conclusion generator
+* Paragraph frameworks (PEEL, CER, etc.)
+
+### **Rewrite Mode**
+
+* Rewrites text while keeping meaning
+* Controls: formal, neutral, simplified
+
+### **Grammar & Clarity Fixer**
+
+* Micro-improvements to clarity, organization
+
+---
+
+## **8.3 Subject-Specific Modes**
+
+### **Math Solver**
+
+* Step-by-step solutions
+* Option to hide final answer
+* Graphable output structure
+
+### **Science Solver**
+
+* IB-style structured responses
+* Lab report helper
+* Diagram descriptions
+
+### **Humanities Mode**
+
+* Argument structuring
+* Essay guidance
+* Comparative frameworks
+
+### **Economics Mode**
+
+* Chains of reasoning
+* Diagram explanations
+* Evaluation paragraphs
+
+### **Computer Science Mode**
+
+* Code analysis
+* Debugging assistance
+* Concept breakdowns
+
+---
+
+## **8.4 IB-Specific Tools**
+
+### **IA Helper**
+
+* Topic selection
+* Research question ideas
+* Outline structures
+* Evaluation frameworks
+
+### **TOK Helper**
+
+* RLS generator
+* Knowledge question builder
+* Essay skeletons
+* Exhibition guidance
+
+### **CAS Helper**
+
+* Project ideas
+* Reflection templates
+* Weekly logs
+
+### **EE Helper**
+
+* Topic refinement
+* Planning
+* Chapter outlines
+
+---
+
+## **8.5 Productivity & Workflow Tools**
+
+### **Task Planner**
+
+User enters assignments → AI generates:
+
+* Study schedule
+* Milestones
+* Work blocks
+* Optional reminders
+
+### **Study Timer**
+
+* Simple Pomodoro timer
+* Works without login
+
+---
+
+# **9. UI Structure (Application-Wide)**
+
+## **Left Sidebar**
+
+* Logo (`logo.png`)
+* Home
+* Study Tools
+* Writing Tools
+* Math
+* Sciences
+* Humanities
+* IB Tools
+* Workspace (saved outputs)
+* Theme toggle
+
+## **Main Window**
+
+* Chat interface (for PlugGPT)
+* Tool-specific UI panels
+* Export buttons
+
+---
+
+# **10. Saved Items System**
+
+* Save responses
+* Export to PDF or Word
+* Tag entries (Math, IA, TOK, EE, etc.)
+* Stored via localStorage in v1
+
+---
+
+# **11. Safety & Integrity System**
+
+Detects when the user is trying to cheat outright
+Responds by giving:
+
+* guidance
+* structure
+* hints
+  Not final verbatim solutions
+
+---
+
+# **12. Monetization (Future)**
+
+Free tier: basic tools
+Future premium: advanced IB modules, essay builder, analytics
+
+---
+
+# **13. Development Roadmap**
+
+**Version 1 (MVP):**
+
+* Subject selection UI
+* PlugGPT chat interface
+* Explain Mode
+* Writing Tools basic
+* Math Solver
+* Light IB toolkit
+* Local saving
+* Light/dark themes
+* Clean responsive UI
+
+**Version 2:**
+
+* Flashcards
+* Task planner
+* Expanded IB tools
+* Login system
+
+**Version 3:**
+
+* Collaborative workspaces
+* Analytics dashboard
+* Advanced subject modules
+

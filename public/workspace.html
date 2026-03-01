@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlugGPT - Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=21" />
+</head>
+<body data-page="workspace">
+  <button id="mobile-menu-btn" class="mobile-toggle">Menu</button>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+      <h1 class="page-title">Workspace</h1>
+      <p class="page-subtitle">Search, filter, export, and delete saved responses.</p>
+
+      <section class="workspace-toolbar">
+        <input id="workspace-search" type="text" placeholder="Search saved items..." />
+        <div id="tag-row" class="tag-row"></div>
+      </section>
+
+      <section id="workspace-empty" class="panel" style="margin-top:14px;display:none;">
+        <p class="muted">No saved items yet.</p>
+      </section>
+
+      <section id="workspace-list" class="workspace-grid" style="grid-template-columns:1fr;"></section>
+    </main>
+  </div>
+
+  <script type="module" src="js/workspace.js?v=22"></script>
+</body>
+</html>

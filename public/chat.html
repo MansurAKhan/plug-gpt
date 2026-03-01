@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlugGPT - Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="css/styles.css?v=24" />
+</head>
+<body data-page="chat">
+  <button id="mobile-menu-btn" class="mobile-toggle">Menu</button>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+      <h1 id="chat-title" class="page-title">Chat</h1>
+      <p class="page-subtitle">Open Chat, select a subject, then begin chatting.</p>
+      <div id="connection-badge" class="connection-badge">Checking LLM connection...</div>
+
+      <section class="chat-layout">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-wrap">
+          <form id="chat-form" class="chat-form">
+            <textarea id="chat-input" placeholder="Type your message..." required></textarea>
+            <button id="chat-send" class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="subject-modal" class="subject-modal" role="dialog" aria-modal="true">
+    <div class="subject-modal-card">
+      <h2>Select Subject</h2>
+      <p class="muted">Choose a subject before starting chat.</p>
+      <div id="subject-options" class="subject-grid" style="margin-top:14px;"></div>
+      <button id="subject-confirm" class="btn" type="button" style="width:100%;margin-top:14px;" disabled>Begin Chatting</button>
+    </div>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script type="module" src="js/chat.js?v=25"></script>
+</body>
+</html>

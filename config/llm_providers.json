@@ -1,0 +1,24 @@
+{
+  "provider_order": ["groq", "openrouter", "ollama"],
+  "providers": {
+    "groq": {
+      "models": [
+        "llama-3.1-8b-instant"
+      ]
+    },
+    "openrouter": {
+      "models": [
+        "meta-llama/llama-3.1-8b-instruct:free",
+        "qwen/qwen-2.5-7b-instruct:free",
+        "mistralai/mistral-7b-instruct:free"
+      ]
+    },
+    "ollama": {
+      "models": [
+        "llama3.1:8b",
+        "qwen2.5:7b-instruct",
+        "mistral:7b-instruct"
+      ]
+    }
+  }
+}

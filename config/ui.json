@@ -1,0 +1,14 @@
+{
+  "subjects": [
+    {"id": "math", "name": "Math", "icon": "M", "color": "#2563eb"},
+    {"id": "sciences", "name": "Sciences", "icon": "S", "color": "#16a34a"},
+    {"id": "tok", "name": "ToK", "icon": "T", "color": "#9333ea"},
+    {"id": "english", "name": "English", "icon": "E", "color": "#ea580c"},
+    {"id": "cs", "name": "Computer Science", "icon": "C", "color": "#4f46e5"},
+    {"id": "general", "name": "General Study", "icon": "G", "color": "#db2777"}
+  ],
+  "nav": [
+    {"id": "chat", "label": "Open Chat", "href": "/chat.html"},
+    {"id": "workspace", "label": "Workspace", "href": "/workspace.html"}
+  ]
+}

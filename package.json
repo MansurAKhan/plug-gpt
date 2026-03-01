@@ -1,0 +1,11 @@
+{
+  "name": "plug-gpt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "python3 server_py/app.py",
+    "dev:python": "python3 server_py/app.py",
+    "install:all": "python3 -m pip install -r server_py/requirements.txt",
+    "build:java": "mkdir -p java/build && javac -d java/build java/src/AcademicUtils.java"
+  }
+}
