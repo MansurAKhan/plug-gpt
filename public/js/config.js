@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './app-config.js';
+
 let cachedUI = null;
 
 export async function getUIConfig() {
@@ -16,6 +18,11 @@ export async function getUIConfig() {
 }
 
 export function getApiBase() {
+  const configuredBase = String(API_BASE_URL || '').trim().replace(/\/$/, '');
+  if (configuredBase) {
+    return configuredBase;
+  }
+
   const host = window.location.hostname;
   if (host === 'localhost' || host === '127.0.0.1') {
     return 'http://localhost:8000/api';
