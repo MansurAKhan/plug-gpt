@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlugGPT - Study Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20" />
+</head>
+<body data-page="study-tools">
+  <button id="mobile-menu-btn" class="mobile-toggle">Menu</button>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+      <h1 class="page-title">Study Tools</h1>
+      <p class="page-subtitle">Explain, break down topics, and solve math step-by-step.</p>
+
+      <div class="tool-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <section class="panel">
+          <h2>Explain Mode</h2>
+          <form id="explain-form" class="form-grid">
+            <textarea name="topic" required placeholder="Enter topic to explain..."></textarea>
+            <button class="btn" type="submit">Explain</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Breakdown Mode</h2>
+          <form id="breakdown-form" class="form-grid">
+            <textarea name="content" required placeholder="Enter content to break down..."></textarea>
+            <button class="btn" type="submit">Break Down</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Math Solver</h2>
+          <form id="math-form" class="form-grid">
+            <textarea name="problem" required placeholder="Enter math problem..."></textarea>
+            <label><input type="checkbox" name="hideAnswer" /> Hide final answer</label>
+            <button class="btn" type="submit">Solve</button>
+          </form>
+        </section>
+      </div>
+
+      <section id="study-result" class="panel result-panel" style="margin-top:18px;display:none;">
+        <h2>Result</h2>
+        <pre id="study-result-text"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/study-tools.js?v=20"></script>
+</body>
+</html>

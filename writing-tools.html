@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlugGPT - Writing Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20" />
+</head>
+<body data-page="writing-tools">
+  <button id="mobile-menu-btn" class="mobile-toggle">Menu</button>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+      <h1 class="page-title">Writing Tools</h1>
+      <p class="page-subtitle">Rewrite text, improve grammar, and build essay structures.</p>
+
+      <div class="tool-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <section class="panel">
+          <h2>Rewrite Mode</h2>
+          <form id="rewrite-form" class="form-grid">
+            <textarea name="text" required placeholder="Enter text to rewrite..."></textarea>
+            <select name="style">
+              <option value="neutral">Neutral</option>
+              <option value="formal">Formal</option>
+              <option value="simplified">Simplified</option>
+            </select>
+            <button class="btn" type="submit">Rewrite</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Grammar &amp; Clarity</h2>
+          <form id="grammar-form" class="form-grid">
+            <textarea name="text" required placeholder="Enter text to fix..."></textarea>
+            <button class="btn" type="submit">Fix Grammar</button>
+          </form>
+        </section>
+
+        <section class="panel" style="grid-column:1/-1;">
+          <h2>Essay Builder</h2>
+          <form id="essay-form" class="form-grid">
+            <input type="text" name="topic" required placeholder="Essay topic..." />
+            <select name="type">
+              <option value="thesis">Thesis Statement</option>
+              <option value="outline">Outline</option>
+              <option value="hook">Hook / Introduction</option>
+              <option value="conclusion">Conclusion</option>
+              <option value="paragraph">Paragraph Framework (PEEL/CER)</option>
+            </select>
+            <button class="btn" type="submit">Generate</button>
+          </form>
+        </section>
+      </div>
+
+      <section id="writing-result" class="panel result-panel" style="margin-top:18px;display:none;">
+        <h2>Result</h2>
+        <pre id="writing-result-text"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/writing-tools.js?v=20"></script>
+</body>
+</html>

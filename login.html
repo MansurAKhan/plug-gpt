@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlugGPT - Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/auth.css?v=20" />
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-card" aria-label="PlugGPT account access">
+      <div class="brand-panel">
+        <img class="brand-logo" src="logos/WhiteBGMain.png" alt="PlugGPT" />
+        <p class="brand-kicker">PlugGPT</p>
+        <h1 class="brand-title">Your academic workspace.</h1>
+        <p class="brand-copy">Chat across Math, Physics, Bio, English, CS, TOK, and General. Save threads by subject and jump into IB tools from one place.</p>
+      </div>
+
+      <div class="form-panel">
+        <div class="mode-switch" role="tablist" aria-label="Authentication mode">
+          <button id="login-tab" class="mode-btn is-active" type="button" data-auth-tab="login">Login</button>
+          <button id="signup-tab" class="mode-btn" type="button" data-auth-tab="signup">Create Account</button>
+        </div>
+
+        <header class="form-header">
+          <p id="auth-eyebrow" class="form-eyebrow">Welcome back</p>
+          <h2 id="auth-title" class="form-title">Log in to PlugGPT</h2>
+          <p id="auth-subtitle" class="form-subtitle">Access your saved chats and workspace.</p>
+        </header>
+
+        <p id="auth-feedback" class="form-feedback" aria-live="polite"></p>
+
+        <form id="login-form" class="auth-form" data-auth-panel="login">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input type="password" name="password" autocomplete="current-password" required placeholder="Enter your password" />
+          </label>
+          <button id="forgot-password-link" class="text-link" type="button">Forgot password?</button>
+          <button class="primary-btn" type="submit">Log In</button>
+        </form>
+
+        <form id="signup-form" class="auth-form auth-form-hidden" data-auth-panel="signup" aria-hidden="true">
+          <label class="field">
+            <span>Full Name</span>
+            <input type="text" name="name" autocomplete="name" required placeholder="Your full name" />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input type="password" name="password" autocomplete="new-password" required placeholder="Create a password" />
+          </label>
+          <button class="primary-btn" type="submit">Create Account</button>
+        </form>
+
+        <form id="forgot-form" class="auth-form auth-form-hidden" data-auth-panel="forgot" aria-hidden="true">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+          </label>
+          <button class="primary-btn" type="submit">Send Reset Email</button>
+          <button id="forgot-back-link" class="text-link" type="button">Back to login</button>
+        </form>
+
+        <form id="reset-form" class="auth-form auth-form-hidden" data-auth-panel="reset" aria-hidden="true">
+          <label class="field">
+            <span>New Password</span>
+            <input type="password" name="password" autocomplete="new-password" required placeholder="Enter a new password" />
+          </label>
+          <label class="field">
+            <span>Confirm Password</span>
+            <input type="password" name="confirmPassword" autocomplete="new-password" required placeholder="Confirm your new password" />
+          </label>
+          <button class="primary-btn" type="submit">Update Password</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/login-page.js?v=20"></script>
+</body>
+</html>

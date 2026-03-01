@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlugGPT - IB Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20" />
+</head>
+<body data-page="ib-tools">
+  <button id="mobile-menu-btn" class="mobile-toggle">Menu</button>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+      <h1 class="page-title">IB Tools</h1>
+      <p class="page-subtitle">Generate guidance for IA, TOK, CAS, and EE.</p>
+
+      <div class="tool-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <section class="panel">
+          <h2>IA Helper</h2>
+          <form class="ib-form form-grid" data-tool="ia">
+            <input type="text" name="topic" required placeholder="IA topic..." />
+            <input type="text" name="subject" required placeholder="Subject (e.g. Biology)..." />
+            <button class="btn" type="submit">Get IA Guidance</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>TOK Helper</h2>
+          <form class="ib-form form-grid" data-tool="tok">
+            <input type="text" name="topic" required placeholder="TOK topic/area..." />
+            <input type="text" name="subject" placeholder="Area of knowledge (optional)..." />
+            <button class="btn" type="submit">Get TOK Guidance</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>CAS Helper</h2>
+          <form class="ib-form form-grid" data-tool="cas">
+            <input type="text" name="topic" placeholder="CAS project area (optional)..." />
+            <button class="btn" type="submit">Get CAS Help</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>EE Helper</h2>
+          <form class="ib-form form-grid" data-tool="ee">
+            <input type="text" name="topic" required placeholder="EE topic..." />
+            <input type="text" name="subject" required placeholder="Subject (e.g. History)..." />
+            <button class="btn" type="submit">Get EE Guidance</button>
+          </form>
+        </section>
+      </div>
+
+      <section id="ib-result" class="panel result-panel" style="margin-top:18px;display:none;">
+        <h2>Result</h2>
+        <pre id="ib-result-text"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/ib-tools.js?v=22"></script>
+</body>
+</html>
