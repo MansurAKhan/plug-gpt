@@ -74,7 +74,17 @@ body {
   color: #1f2937;
   white-space: nowrap;
   min-width: 0;
-  padding-inline: 16px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terms-try-btn:hover {
+  background: #f2b500;
 }
 
 .terms-main {

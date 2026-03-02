@@ -118,6 +118,12 @@ function bindSignupForm() {
     const name = form.querySelector('input[name="name"]')?.value || '';
     const email = form.querySelector('input[name="email"]')?.value || '';
     const password = form.querySelector('input[name="password"]')?.value || '';
+    const termsConsent = form.querySelector('input[name="termsConsent"]')?.checked;
+
+    if (!termsConsent) {
+      setFeedback('You must agree to the terms and conditions to create an account.');
+      return;
+    }
 
     try {
       const { data, error } = await signUpWithEmail({ name, email, password });
