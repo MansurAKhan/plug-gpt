@@ -35,6 +35,87 @@ body {
   min-height: 100vh;
 }
 
+.terms-body {
+  min-height: 100vh;
+  padding: 24px 28px 40px;
+}
+
+.terms-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 auto 48px;
+  max-width: 1180px;
+}
+
+.terms-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.terms-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.terms-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.terms-try-btn {
+  background: var(--ap-yellow);
+  color: #1f2937;
+}
+
+.terms-theme-toggle {
+  margin-top: 0;
+  width: auto;
+  min-width: 132px;
+}
+
+.terms-main {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.terms-hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.terms-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.terms-hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.terms-copy {
+  width: min(50%, 760px);
+  min-width: 320px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.terms-copy p {
+  margin: 0 0 18px;
+}
+
+.terms-copy p:last-child {
+  margin-bottom: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -348,6 +429,8 @@ html.dark .connection-badge.error {
   display: grid;
   gap: 18px;
   margin-top: 24px;
+  min-height: 0;
+  align-content: start;
 }
 
 .subject-grid {
@@ -766,13 +849,28 @@ select:focus {
   min-width: 0;
 }
 
+body[data-page="workspace"] .main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.workspace-list-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  margin-right: -4px;
+}
+
 .workspace-grid .saved-item-head > div:first-child {
   min-width: 0;
 }
 
 .workspace-grid h2,
 .workspace-grid .muted,
-.workspace-grid pre {
+.workspace-grid pre,
+.workspace-grid .saved-content {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -781,6 +879,10 @@ select:focus {
   max-width: 100%;
   overflow-x: auto;
   white-space: pre-wrap;
+}
+
+.workspace-grid .saved-content {
+  margin-top: 14px;
 }
 
 .muted {
@@ -972,6 +1074,26 @@ select:focus {
   .main-content {
     padding: 58px 14px 14px;
     height: 100vh;
+  }
+
+  .terms-body {
+    padding: 18px 14px 28px;
+  }
+
+  .terms-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 34px;
+  }
+
+  .terms-header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .terms-copy {
+    width: 100%;
+    min-width: 0;
   }
 
   .chat-form {
