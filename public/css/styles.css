@@ -69,7 +69,7 @@ body {
   gap: 12px;
 }
 
-.terms-try-btn {
+.terms-header .terms-try-btn {
   background: var(--ap-yellow);
   color: #1f2937;
   white-space: nowrap;
@@ -83,7 +83,7 @@ body {
   justify-content: center;
 }
 
-.terms-try-btn:hover {
+.terms-header .terms-try-btn:hover {
   background: #f2b500;
 }
 
