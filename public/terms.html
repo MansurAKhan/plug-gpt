@@ -17,7 +17,6 @@
     </a>
     <div class="terms-header-actions">
       <a class="small-btn terms-try-btn" href="login.html">Try PlugGPT</a>
-      <button type="button" class="theme-toggle terms-theme-toggle" id="terms-theme-toggle">Light Mode</button>
     </div>
   </header>
 
@@ -56,25 +55,5 @@
     </section>
   </main>
 
-  <script type="module">
-    import { applyTheme, getCurrentTheme, toggleTheme } from './js/theme.js';
-
-    applyTheme(getCurrentTheme());
-
-    const button = document.getElementById('terms-theme-toggle');
-
-    function syncLabel() {
-      button.textContent = document.documentElement.classList.contains('dark')
-        ? 'Light Mode'
-        : 'Dark Mode';
-    }
-
-    syncLabel();
-
-    button.addEventListener('click', () => {
-      toggleTheme();
-      syncLabel();
-    });
-  </script>
 </body>
 </html>

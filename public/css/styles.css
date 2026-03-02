@@ -72,12 +72,9 @@ body {
 .terms-try-btn {
   background: var(--ap-yellow);
   color: #1f2937;
-}
-
-.terms-theme-toggle {
-  margin-top: 0;
-  width: auto;
-  min-width: 132px;
+  white-space: nowrap;
+  min-width: 0;
+  padding-inline: 16px;
 }
 
 .terms-main {
