@@ -860,11 +860,12 @@ body[data-page="workspace"] .main-content {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow-y: auto;
 }
 
 .workspace-list-scroll {
-  flex: 1 1 auto;
-  overflow-y: auto;
+  flex: 0 0 auto;
+  overflow: visible;
   overflow-x: hidden;
   padding-right: 4px;
   margin-right: -4px;
