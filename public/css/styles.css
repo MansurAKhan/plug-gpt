@@ -518,7 +518,7 @@ html.dark .subject-card p {
 }
 
 .message-bubble {
-  max-width: min(830px, 92%);
+  max-width: min(1100px, 94%);
   padding: 14px;
 }
 
