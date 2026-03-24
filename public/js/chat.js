@@ -27,6 +27,15 @@ function escapeHtml(value) {
     .replaceAll("'", '&#39;');
 }
 
+function escapeAttribute(value) {
+  return String(value || '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
 function formatInline(value) {
   return value
     .replace(/\[color=(#[0-9a-fA-F]{3,8}|[a-zA-Z]+)\]([\s\S]*?)\[\/color\]/g, (_match, color, text) => `<span style="color:${color}">${text}</span>`)
@@ -87,8 +96,50 @@ function renderMathInElement(element) {
   });
 }
 
+function renderDesmosGraphs(element) {
+  if (!element || !window.Desmos?.GraphingCalculator) {
+    return;
+  }
+
+  element.querySelectorAll('[data-desmos-expressions]').forEach((container) => {
+    if (container.dataset.desmosReady === 'true') {
+      return;
+    }
+
+    let expressions = [];
+    try {
+      expressions = JSON.parse(container.dataset.desmosExpressions || '[]');
+    } catch (_error) {
+      expressions = [];
+    }
+
+    const calculatorRoot = document.createElement('div');
+    calculatorRoot.className = 'desmos-graph-canvas';
+    container.appendChild(calculatorRoot);
+
+    const calculator = window.Desmos.GraphingCalculator(calculatorRoot, {
+      expressions: true,
+      settingsMenu: false,
+      zoomButtons: true,
+      expressionsCollapsed: false
+    });
+
+    expressions
+      .filter(Boolean)
+      .forEach((expression, index) => {
+        calculator.setExpression({
+          id: `expr-${index + 1}`,
+          latex: expression
+        });
+      });
+
+    container.dataset.desmosReady = 'true';
+  });
+}
+
 function enhanceRenderedContent(element) {
   renderMathInElement(element);
+  renderDesmosGraphs(element);
 }
 
 function renderText(content) {
@@ -97,7 +148,26 @@ function renderText(content) {
   const codeBlocks = [];
   const withCodePlaceholders = escaped.replace(/```(\w+)?\n([\s\S]*?)```/g, (_match, language, code) => {
     const index = codeBlocks.length;
-    const languageClass = language ? ` class="code-block language-${language}"` : ' class="code-block"';
+    const normalizedLanguage = String(language || '').trim().toLowerCase();
+    if (normalizedLanguage === 'desmos') {
+      const expressions = code
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      codeBlocks.push(`
+        <section class="desmos-graph-block">
+          <div class="desmos-graph-header">
+            <strong>Interactive Graph</strong>
+            <span>Drag, zoom, and inspect the graph.</span>
+          </div>
+          <div class="desmos-graph-shell" data-desmos-expressions="${escapeAttribute(JSON.stringify(expressions))}"></div>
+        </section>
+      `);
+      return `@@CODEBLOCK_${index}@@`;
+    }
+
+    const languageClass = normalizedLanguage ? ` class="code-block language-${normalizedLanguage}"` : ' class="code-block"';
     codeBlocks.push(`<pre${languageClass}><code>${code.trim()}</code></pre>`);
     return `@@CODEBLOCK_${index}@@`;
   });

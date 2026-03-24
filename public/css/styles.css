@@ -702,6 +702,41 @@ html.dark .message-row.assistant .message-bubble {
   margin-left: 8px;
 }
 
+.desmos-graph-block {
+  margin: 0 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--panel) 78%, var(--border));
+}
+
+.desmos-graph-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+.desmos-graph-header span {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.desmos-graph-shell {
+  padding: 12px;
+}
+
+.desmos-graph-canvas {
+  width: 100%;
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
 .typing-cursor::after {
   content: "|";
   margin-left: 2px;

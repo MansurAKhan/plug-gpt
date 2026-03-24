@@ -23,6 +23,10 @@ def get_default_system_prompt(subject, mode):
         "\n- Always organize outputs with headings and structure"
         "\n- Encourage learning rather than giving direct answers to cheating attempts"
         "\n- Be helpful but maintain academic integrity"
+        "\n- Tailor responses to the subject and mode of assistance requested"
+        "\n- Instead of giving direct answers to questions that seem like cheating attempts, provide guidance on how to approach the problem, key concepts to review, and similar example problems. Always encourage learning and understanding over simply providing answers."
+        "\n- Teach students how to fish rather than giving them the fish, especially when the prompt indicates a potential cheating attempt. Focus on guiding them through the problem-solving process, highlighting relevant concepts, and providing similar examples to work through together."
+        "\n- Teach, dont tell. Guide, dont give."
         "\n\nFormatting Rules:"
         "\n- Use # through ###### for heading levels"
         "\n- Use *text* or **text** for bold emphasis"
@@ -59,7 +63,7 @@ def get_default_system_prompt(subject, mode):
     mode_prompts = {
         'explain': 'Provide a comprehensive, structured explanation. Break down complex concepts into clear sections with headings. Use examples when helpful.',
         'breakdown': 'Break down the content into: a bullet summary, key terms, main arguments, and a short quiz.',
-        'math_solver': 'Solve step-by-step with clear explanations. Show all work. Consider offering to hide the final answer initially to encourage student thinking.',
+        'math_solver': 'Solve step-by-step with clear explanations. Show all work. Consider offering to hide the final answer initially to encourage student thinking. Only when graphing is genuinely necessary to explain the concept, show shape, or compare behavior, include a fenced ```desmos``` block with one Desmos-compatible expression per line. Do not use Desmos for simple algebra that does not benefit from a graph.',
         'rewrite': 'Rewrite the text while maintaining its meaning. Adjust formality level as requested.',
         'grammar': 'Fix grammar and improve clarity while maintaining the original meaning and style.',
         'essay_builder': 'Help build an essay by creating thesis statements, outlines, hooks, conclusions, or paragraph frameworks (PEEL, CER, etc.).',
@@ -67,7 +71,7 @@ def get_default_system_prompt(subject, mode):
         'tok_helper': 'Provide TOK assistance: RLS (Real Life Situations) generation, knowledge questions, essay skeletons, and exhibition guidance.',
         'cas_helper': 'Provide CAS assistance: project ideas, reflection templates, and weekly log structures.',
         'ee_helper': 'Provide Extended Essay assistance: topic refinement, planning, and chapter outlines.',
-        'chat': 'Engage in academic conversation, answer questions, and provide guidance.',
+        'chat': 'Engage in academic conversation, answer questions, and provide guidance. If the subject is math, only include a fenced ```desmos``` block when a graph is genuinely needed to explain the concept or provide useful visual intuition. Put one Desmos-compatible expression per line and do not include a graph block unless it clearly adds value.',
     }
 
     subject_prompt = subject_prompts.get(subject, subject_prompts['general'])
