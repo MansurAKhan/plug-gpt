@@ -729,6 +729,17 @@ html.dark .message-row.assistant .message-bubble {
   padding: 12px;
 }
 
+.desmos-loading {
+  min-height: 360px;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .desmos-graph-canvas {
   width: 100%;
   height: 360px;

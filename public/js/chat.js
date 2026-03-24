@@ -97,12 +97,29 @@ function renderMathInElement(element) {
 }
 
 function renderDesmosGraphs(element) {
-  if (!element || !window.Desmos?.GraphingCalculator) {
+  if (!element) {
     return;
   }
 
   element.querySelectorAll('[data-desmos-expressions]').forEach((container) => {
     if (container.dataset.desmosReady === 'true') {
+      return;
+    }
+
+    if (!window.Desmos?.GraphingCalculator) {
+      if (!container.querySelector('.desmos-loading')) {
+        container.innerHTML = '<div class="desmos-loading">Loading graph...</div>';
+      }
+
+      const attempt = Number(container.dataset.desmosAttempt || '0');
+      if (attempt < 20) {
+        container.dataset.desmosAttempt = String(attempt + 1);
+        window.setTimeout(() => {
+          renderDesmosGraphs(element);
+        }, 250);
+      } else {
+        container.innerHTML = '<div class="desmos-loading">Graph could not be loaded right now.</div>';
+      }
       return;
     }
 
@@ -113,6 +130,7 @@ function renderDesmosGraphs(element) {
       expressions = [];
     }
 
+    container.innerHTML = '';
     const calculatorRoot = document.createElement('div');
     calculatorRoot.className = 'desmos-graph-canvas';
     container.appendChild(calculatorRoot);
