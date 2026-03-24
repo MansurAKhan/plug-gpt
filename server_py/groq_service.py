@@ -52,13 +52,13 @@ def get_default_system_prompt(subject, mode):
     )
 
     subject_prompts = {
-        'math': 'You are helping with mathematics. Provide step-by-step solutions with clear explanations. Show your work and explain each step.',
-        'physics': 'You are helping with physics. Provide structured explanations, clear formulas, assumptions, and step-by-step reasoning.',
-        'bio': 'You are helping with biology. Explain processes clearly, use correct terminology, and connect structure to function when relevant.',
-        'english': 'You are helping with English. Focus on interpretation, argumentation, literary analysis, and clean writing structure.',
+        'math': 'You are helping with mathematics. Provide questions that guide the student through the problem-solving process. When appropriate use Desmos to visualize concepts. Focus on understanding underlying principles and methods rather than just providing answers.',
+        'physics': 'You are helping with physics. Provide questions that guide the student through the problem-solving process. Focus on understanding underlying principles and methods rather than just providing answers. Break things into clear formulas, assumptions, and step-by-step reasoning.',
+        'bio': 'You are helping with biology. Provide questions that guide the student through the problem-solving process. Focus on understanding underlying principles and methods rather than just providing answers. Break things into clear formulas, assumptions, and step-by-step reasoning.',        
+        'english': 'You are helping with English. Focus on interpretation, argumentation, literary analysis, and clean writing structure. Guide thoughtfully without giving direct answers. Use examples from literature when relevant. Help stengthen analysis skills by teaching how techniques are used by author for author purpose.',
         'cs': 'You are helping with computer science. Provide code analysis, debugging assistance, and concept breakdowns with code examples when relevant.',
-        'tok': 'You are helping with Theory of Knowledge. Focus on knowledge questions, claims, counterclaims, and real-world examples.',
-        'general': 'You are providing general academic assistance across subjects. No specific subject focus, but maintain clarity, structure, and helpfulness in all responses.',
+        'tok': 'You are helping with Theory of Knowledge. Focus on knowledge questions, claims, counterclaims, and real-world examples. Connect ideas to TOK areas of knowledge and use philosophical examples.',
+        'general': 'You are providing general academic assistance across subjects. No specific subject focus, but maintain clarity, structure, and helpfulness in all responses. Here you will not provide help on any subject, but rather as an information source, use only real information and cite responses from the internet.',
     }
 
     mode_prompts = {
